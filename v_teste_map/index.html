@@ -1,0 +1,665 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="bootstrap-4.0.0/assets/favicon/favicon.ico">
+    <!--Script principal -->
+		<script src="Script_sioa/sioa.js"></script>
+
+    <!--Modal  -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!--end modal -->
+
+
+<!--script>
+//Script pra bloquear inspecionar elemento - manter seguranca
+
+if (document.addEventListener) {
+    document.addEventListener("contextmenu", function(e) {
+        e.preventDefault();
+        return false;
+    });
+} else { //Versões antigas do IE
+    document.attachEvent("oncontextmenu", function(e) {
+        e = e || window.event;
+        e.returnValue = false;
+        return false;
+    });
+}
+
+
+</script-->
+<!--script>
+if (document.addEventListener) {
+    document.addEventListener("keydown", bloquearSource);
+} else { //Versões antigas do IE
+    document.attachEvent("onkeydown", bloquearSource);
+}
+
+function bloquearSource(e) {
+    e = e || window.event;
+
+    var code = e.which || e.keyCode;
+
+    if (
+        e.ctrlKey &&
+        (code == 83 || code == 85) //83 = S, 85 = U
+    ) {
+        if (e.preventDefault) {
+            e.preventDefault();
+        } else {
+            e.returnValue = false;
+        }
+
+        return false;
+    }
+}
+
+</script-->
+
+
+
+
+
+
+    <title>SIOA</title>
+          
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap-4.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+  	
+	
+	
+	<nav class="navbar  navbar-expand-lg navbar-light bg-light">
+	  <a class="navbar-brand">SIOA</a>
+	  <div id="element"></div>
+	
+
+
+
+
+	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  	  <div class="collapse navbar-collapse" id="navbarText">
+	    <ul class="navbar-nav mr-auto">
+	        <li class="nav-item"> 
+		    	<div class="dropdown">
+	  				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Projetos de inspeção</button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <!-- a class="dropdown-item" href="#">Incluir novo</a-->
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myModal">Novo projeto de inspeção OAE</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myEditModal">Novo planejamento de isnpeção OAE</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#novoOAE">Novo OAE</a>
+
+					  </div>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <!-- a class="dropdown-item" href="#">Incluir novo</a-->
+					    
+					  </div>
+					  
+					</div>
+			</li>
+			<span style="width: 2px;"></span>	
+			<li class="nav-item"> 
+		    	<div class="dropdown">
+	  				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Inspeção</button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <!-- a class="dropdown-item" href="#">Incluir novo</a-->
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myModal">Substituição de  OAE</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myEditModal">Preservação de OAE</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myEditModal">Reabilitação de OAE</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myEditModal">Manutenção corretiva de OAE</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myEditModal">Manutenção Preventiva de OAE</a>
+					  </div>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <!-- a class="dropdown-item" href="#">Incluir novo</a-->
+					    
+					  </div>
+					  
+					</div>
+			</li>
+			<span style="width: 2px;"></span>
+			<li class="nav-item"> 
+		    	<div class="dropdown">
+	  				<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Edificações</button>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <!-- a class="dropdown-item" href="#">Incluir novo</a-->
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myModal">Vistoria visual de edificação</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myEditModal">Preservação de OAE</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myEditModal">Reabilitação de OAE</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myEditModal">Manutenção corretiva de OAE</a>
+					    <a class="dropdown-item " data-toggle="modal" data-target="#myEditModal">Manutenção Preventiva de OAE</a>
+					  </div>
+					  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+					    <!-- a class="dropdown-item" href="#">Incluir novo</a-->
+					    
+					  </div>
+					  
+					</div>
+			</li>
+			<span style="width: 2px;"></span>
+			<li class="nav-item">
+				<div class="btn-group-toggle" data-toggle="buttons">
+				  <label class="btn btn-secondary active">
+				    <input type="checkbox" checked autocomplete="off"> Documentação de projeto  
+				  </label>
+				</div>
+			 </li>
+	      <!-- li class="nav-item">
+	        <a class="nav-link" href="#">Projetos de inspeção<span class="sr-only">(current)</span></a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Operações</a>
+	      </li-->
+	      
+	      
+	    </ul>
+	    <span class="navbar-text">
+	      Sistema de inspeção de obras especiais com uso de drones autônomos
+
+
+	    </span>
+
+
+
+	  </div>
+	</nav>
+
+	<!-- Moral Projeto-->	
+	<div class="container">
+	  <!-- Modal -->
+	  <div class="modal fade" id="myModal" role="dialog">
+	    <div class="modal-dialog">
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          
+	          <h4 class="modal-title">Cadastro de projeto </h4>
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        </div>
+	        	<div class="modal-body">
+       				 <div class="container">
+					          <form class="needs-validation" novalidate>
+							            <!--div class="row">
+							              <div class="col-md-6 mb-3">
+							               <input type="hidden" id="id_edit_user" name="id_edit_user" value="0">
+							                  <label for="firstName">Nome do projeto</label>
+							                <input type="text" class="form-control" id="firstName1" placeholder="" value="" required>
+							                <div class="invalid-feedback">
+							                  Este campo é obrigatorio.
+							                </div>
+							              </div>
+							              <div class="col-md-6 mb-3">
+							                <label for="lastName">Descrição do projeto</label>
+							                <input type="text" class="form-control" id="lastName1" placeholder="" value="" required>
+							                <div class="invalid-feedback">
+							                  Este campo é obrigatorio.
+							                </div>
+							              </div>
+
+							              <div class="col-md-6 mb-3">
+							                <label for="lastName">Sobrenome</label>
+							                <input type="text" class="form-control" id="lastName1" placeholder="" value="" required>
+							                <div class="invalid-feedback">
+							                  Este campo é obrigatorio.
+							                </div>
+							              </div>
+							            </div-->
+
+					            		<!-- form para incusão de projeto -->
+										 <div class="mb-3">
+										              <label for="firstName">Nome do projeto</label>
+										              <div class="input-group">
+										                
+										                <input type="text" class="form-control" id="lastName1" value="" placeholder="Username" required>
+										                <div class="invalid-feedback" style="width: 100%;">
+										                  Campo obrigatório..
+										                </div>
+										              </div>
+										            </div>
+
+										            <div class="mb-3">
+										              <label for="email">Descrição do projeto <!-- span class="text-muted">(Optional)</span--></label>
+										              <input type="email" class="form-control" id="email" placeholder="">
+										              <div class="invalid-feedback">
+										                Campo obrigatório.
+										              </div>
+										 </div>
+					            <hr class="mb-4">
+					            <button class="btn btn-primary btn-lg btn-block" id="btn_novo" onclick="Insert(document.getElementById('firstName1').value,
+					            document.getElementById('lastName1').value);">Salvar</button>
+
+					            <button class="btn btn-primary btn-lg btn-block" style="display: none;" id="btn_editar" onclick="Update(document.getElementById('id_edit_user').value ,document.getElementById('firstName1').value,document.getElementById('lastName1').value);">Salvar alteração</button>
+					            <!-- button class="btn btn-primary btn-lg btn-block" onclick="square();" type="submit">Salvar novo</button-->
+					          </form>
+					    </div>
+	        	</div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+	          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<div class="container">
+		  <!-- Modal -->
+		  <div class="modal fade" id="myEditModal" role="dialog">
+		    <div class="modal-dialog">
+		      <!-- Modal content-->
+		      <div class="modal-content">
+		        <div class="modal-header">
+		          <button type="button" class="close" data-dismiss="modal">&times;</button>
+		          <h4 class="modal-title">Modal Edit</h4>
+		        </div>
+		        <div class="modal-body">
+		          <p>Some text in the modal.</p>
+		        </div>
+		        <div class="modal-footer">
+		           <button type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+		          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+<!-- Cadastro de nova OAE -->
+
+
+	<div class="container">
+	  <!-- Modal -->
+	  <div class="modal fade" id="novoOAE" role="dialog">
+	  
+	    <div class="modal-dialog">
+	      <!-- Modal content-->
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          
+	          <h4 class="modal-title">Cadastro de OAE </h4>
+	          <button type="button" class="close" data-dismiss="modal">&times;</button>
+	        </div>
+	        	<div class="modal-body">
+	        		<div class="container">
+				      <div class="row">
+				        <label for="firstName">OAE</label>
+				          <form class="needs-validation" novalidate>
+
+				            <div class="mb-3">
+				              <label for="nomeOAE">Nome OAE</label>
+				              <div class="input-group">
+				                <div class="input-group-prepend">
+				                  <!-- span class="input-group-text">@</span-->
+				                </div>
+				                <input type="text" class="form-control" id="nomeOAE" placeholder="Username" required>
+				                <div class="invalid-feedback" style="width: 100%;">
+				                  Este campo é requerido.
+				                </div>
+				              </div>
+				            </div>
+
+
+				            
+
+							<div class="mb-3">
+				              <label for="trechoOAE">Trecho</label>
+				              <div class="input-group">
+				                <div class="input-group-prepend">
+				                  <!-- span class="input-group-text">@</span-->
+				                </div>
+				                <input type="text" class="form-control" id="trechoOAE" placeholder="Username" required>
+				                <div class="invalid-feedback" style="width: 100%;">
+				                  Campo requerido.
+				                </div>
+				              </div>
+				            </div>
+
+							<div class="mb-3">
+				              <label for="localDodocia_kmOAE">Local na Rodovia (km)</label>
+				              <div class="input-group">
+				                <div class="input-group-prepend">
+				                  <!-- span class="input-group-text">@</span-->
+				                </div>
+				                <input type="text" class="form-control" id="localDodocia_kmOAE" placeholder="Username" required>
+				                <div class="invalid-feedback" style="width: 100%;">
+				                  Campo requiredo.
+				                </div>
+				              </div>
+				            </div>
+
+
+							<div class="row">
+								
+
+				              <div class="col-md-3 mb-3">
+				                <label for="cc-expiration">UF</label>
+				                <input type="text" class="form-control" id="ufOAE" placeholder="" required>
+				                <div class="invalid-feedback">
+				                  Cmapo requerido.
+				                </div>
+				              </div>
+
+				              <div class="col-md-3 mb-3">
+				                <label for="cc-expiration">Latitude</label>
+				                <input type="text" class="form-control" id="cc-latitudeOae" placeholder="" required>
+				                <div class="invalid-feedback">
+				                  Campo requerido.
+				                </div>
+				              </div>
+				              <div class="col-md-3 mb-3">
+				                <label for="cc-expiration">Longitude</label>
+				                <input type="text" class="form-control" id="longitudeOae" placeholder="" required>
+				                <div class="invalid-feedback">
+				                  Campo requerido.
+				                </div>
+				              </div>
+				            </div>
+				            <div class="row">
+				            <div class="col-md-3 mb-3">
+				                <label for="cc-expiration">Altitude</label>
+				                <input type="text" class="form-control" id="altitudeOae" placeholder="" required>
+				                <div class="invalid-feedback">
+				                  Campo requerido.
+				                </div>
+				            </div>
+							<div class="col-md-3 mb-3">
+				                <label for="cc-expiration">Comprimento</label>
+				                <input type="text" class="form-control" id="ComprimentoOae" placeholder="" required>
+				                <div class="invalid-feedback">
+				                  Campo requerido.
+				            	</div>
+				            </div>
+
+				            <div class="col-md-3 mb-3">
+				                <label for="cc-expiration">Largura</label>
+				                <input type="text" class="form-control" id="larguraOae" placeholder="" required>
+				                <div class="invalid-feedback">
+				                  Campo requerido.
+				            	</div>
+				            </div>
+							</div>
+				            </div>
+				            <div class="mb-3">
+				              <label for="tipoEstrutura">Tipo de Estrutura</label>
+									<select class="custom-select d-block w-100" id="tipoEstrutura" required="">
+				                  		<option value="">Choose...</option>
+				                  		<option>Ponte pênsil (ponte suspensa)</option>
+				                  		<option>Ponte estaiada </option>
+				                  		<option>Pontes cantiléver </option>
+				                  		<option>Pontes de treliça </option>
+				                  		
+				                  		
+				                	</select>
+							</div>
+
+				            <div class="mb-3">
+				              <label for="naturezaTrasposicao">Natureza da Trasposição</label>
+				              <select class="custom-select d-block w-100" id="naturezaTrasposicao" required="">
+				                  		<option value="">Choose...</option>
+				                  		<option>Viaduto em encostas</option>
+				              </select>
+				            </div>
+
+
+				            <div class="mb-3">
+				              <label for="sistemaConstrutivo">Sistema Construtivo</label>
+				              <select class="custom-select d-block w-100" id="sistemaConstrutivo" required="">
+				                  		<option value="">Choose...</option>
+				                  		<option>Tipo de sistema de construção 1</option>
+				              </select>
+				            </div>
+
+				            
+				            <hr class="mb-4">
+				            <button class="btn btn-primary btn-lg btn-block" type="submit">Continue to checkout</button>
+
+				          </form>
+				            <div class="modal-footer">
+					          <button type="button" class="btn btn-default" data-dismiss="modal">Salvar</button>
+					          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					        </div>      
+				      </div>
+				    </div>
+       			</div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+
+
+
+
+
+	<div id="map" style="width: 100%; height: 543px; background: grey"/>
+    
+    
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+
+
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+    <script>
+	  	$("#usuarios").html(Listar());
+  </script>
+  <script>
+        $("#containerModal").html(Pagina(0));
+  </script>
+  <!--script>
+     $("#quantidade").html(QuantidadeRegistros());
+  </script-->
+<!--script>
+  $( function() {
+    var availableTags = ListarBustaAutocomplete();
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script-->
+
+
+
+<link rel="stylesheet" type="text/css" href="https://js.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1533195059" />
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-core.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-service.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+<script type="text/javascript" src="https://js.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
+
+
+
+<script  type="text/javascript" charset="UTF-8" >
+    
+/**
+ * Creates a new marker and adds it to a group
+ * @param {H.map.Group} group       The group holding the new marker
+ * @param {H.geo.Point} coordinate  The location of the marker
+ * @param {String} html             Data associated with the marker
+ */
+function addMarkerToGroup(group, coordinate, html) {
+  var marker = new H.map.Marker(coordinate);
+  // add custom data to the marker
+  marker.setData(html);
+  group.addObject(marker);
+}
+
+
+/**
+ * Add two markers showing the position of Liverpool and Manchester City football clubs.
+ * Clicking on a marker opens an infobubble which holds HTML content related to the marker.
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function addInfoBubble(map) {
+  //Chama Configurações do mapa do arquivo js
+ 
+//alert(ListaObras());
+
+ //MapList();
+  
+var group = new H.map.Group();
+  
+  //Configuração de inicialização de mapa
+  map.setCenter({lat:-20.3203023, lng:-40.2847483});
+  map.setZoom(2);
+
+
+  
+  //Cria Objeto
+  map.addObject(group);
+
+  // add 'tap' event listener, that opens info bubble, to the group
+  group.addEventListener('tap', function (evt) {
+    // event target is the marker itself, group is a parent event target
+    // for all objects that it contains
+    var bubble =  new H.ui.InfoBubble(evt.target.getPosition(), {
+      // read custom data
+      content: evt.target.getData()
+    });
+    // show info bubble
+    ui.addBubble(bubble);
+  }, false);
+
+
+
+
+
+ var myConnect = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=C:\\v_teste_map\\db_sioa.mdb;Jet OLEDB:Database Password=123456";
+  var ConnectObj = new ActiveXObject("ADODB.Connection");
+  var RS = new ActiveXObject("ADODB.Recordset");
+  var sql = "SELECT  * FROM  ObraArteEspecial";
+  ConnectObj.Open(myConnect);
+  RS.Open(sql, ConnectObj);
+
+  var ListaObjeto = new Array();
+  var A = new Array();
+  var aObjeto = new Object();
+  var clonedArray;
+  var i = 0;
+  while (!RS.EOF) {
+    i++;
+
+
+//RS.fields(7).value + lng:RS.fields(8).value
+//  addMarkerToGroup(group, {lat:RS.fields(7).value, lng:RS.fields(8).value},
+  //  '<div>'+RS.fields(1).value+'</div>');
+
+  console.log(RS.fields(6).value+"teste" +RS.fields(7).value);
+
+ addMarkerToGroup(group, {lat:RS.fields(6).value, lng:RS.fields(7).value},
+    '<div>'+RS.fields(1).value+'</div>');
+
+
+
+
+/*
+  addMarkerToGroup(group, {lat:-20.325874, lng:-40.351520},
+    '<div>PONTE FLORENTINO AVIDOS</div>');
+
+
+  addMarkerToGroup(group, {lat:-20.327082, lng:-40.354761},
+    '<div>2ª PONTE</div>');
+
+  addMarkerToGroup(group, {lat: 52.53075, lng: 14.3856},
+
+    '<div>2ª PONTE</div>');
+*/
+
+RS.MoveNext();		  
+
+
+
+	}
+
+map.addObject(marker);  
+}
+
+
+
+/**
+ * Boilerplate map initialization code starts below:
+ */
+
+
+/*
+Initialize communication with the platform
+HSWdRZNfGj5Jd5uT5xkp
+App Code:
+0MCGh0g5KdThHE_mfIYDMQ*/
+var platform = new H.service.Platform({
+   app_id: 'HSWdRZNfGj5Jd5uT5xkp',
+  app_code: '0MCGh0g5KdThHE_mfIYDMQ',
+  useHTTPS: true
+});
+var pixelRatio = window.devicePixelRatio || 1;
+var defaultLayers = platform.createDefaultLayers({
+  tileSize: pixelRatio === 1 ? 256 : 512,
+  ppi: pixelRatio === 1 ? undefined : 320
+});
+
+// initialize a map - this map is centered over Europe
+var map = new H.Map(document.getElementById('map'),
+  defaultLayers.normal.map,{
+  center: {lat: 53.430, lng: -2.961},
+  zoom: 7,
+  pixelRatio: pixelRatio
+});
+
+// MapEvents enables the event system
+// Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+
+//Isso chama um marcador do tipo DomComOnmouse
+//addDomMarker(map);   
+
+// create default UI with layers provided by the platform
+var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+// Now use the map as required...
+addInfoBubble(map);
+
+</script>
+
+
+
+
+  </body>
+</html>

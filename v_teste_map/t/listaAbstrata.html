@@ -1,0 +1,73 @@
+<html>
+<head>
+<title>List</title>
+          
+<script language="javascript" type="text/javascript" src="List.js"></script>
+<script language="javascript" type="text/javascript">
+  function onLoad() {
+  var oList = new List();
+  var oList2 = new List();
+                  
+    oList.Add('Item 1');
+      
+    oList2.Add('Item Sub 1');
+    oList2.Add('Item Sub 3');
+      
+  var itemSub2 = 'Item Sub 2';
+      
+    oList2.Insert(1, itemSub2);
+      
+    oList.AddRange(oList2);
+      
+  for (var i = 0; i < oList.Count(); i++) {
+    document.writeln(oList.GetItem(i) + "<br>");
+  }
+      
+  document.writeln('oList2 - Exists<br>');
+      
+    if (oList2.Exists(itemSub2)) {
+        document.writeln('Yes<br>');
+    }
+    else {
+        document.writeln('No<br>');
+    }
+      
+    document.writeln('oList - Exists<br>');
+      
+    var item2 = 'Item 2';
+      
+    if (oList.Exists(item2)) {
+        document.writeln('Yes<br>');
+    }
+    else {
+        document.writeln('No<br>');
+    }
+      
+    oList.Add(item2);
+      
+    document.writeln('oList Index = ' + oList.Find(item2) + "<br>");
+      
+        var copyList = oList;
+      
+        document.writeln('Equal = ' + oList.Equal(oList, copyList) + "<br>");
+      
+        copyList.ForEach(function (obj) {
+            document.writeln(obj + "<br>");
+        
+      
+            document.writeln("<br>GetRange()<br>");
+      
+            var rangeList = copyList.GetRange(2, 2);
+      
+            rangeList.ForEach(function (obj) {
+            document.writeln(obj + "<br>");
+            });
+        
+  })
+}
+</script>
+</head>
+<body onload="onLoad();">
+      
+</body>
+</html>
